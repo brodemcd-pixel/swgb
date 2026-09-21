@@ -1,0 +1,11 @@
+# Netlify build config. The whole build is a `cat` of src/ into public/index.html.
+
+[build]
+  command = "sh build.sh"
+  publish = "public"
+
+# Serve fresh builds immediately instead of a stale cached copy.
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
